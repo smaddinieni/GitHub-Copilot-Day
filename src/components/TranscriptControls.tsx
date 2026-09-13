@@ -74,7 +74,7 @@ export function TranscriptControls({
           Choose .md file
         </button>
         <button type="button" className="reset-button" onClick={onReset}>
-          Reset to demo
+          Reset to repository board
         </button>
       </div>
       <input

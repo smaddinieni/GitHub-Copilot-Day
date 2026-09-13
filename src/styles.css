@@ -441,6 +441,38 @@ h2 {
   max-width: 1240px;
   padding-top: 16px;
 }
+.site-footer {
+  display: grid;
+  gap: 10px;
+}
+.site-footer .attribution-line {
+  margin: 0;
+}
+.owner-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.owner-links a {
+  color: var(--orange);
+  display: inline-block;
+  font-weight: bold;
+  min-height: 44px;
+  padding: 11px 2px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  word-break: break-word;
+}
+.owner-links a:hover {
+  color: var(--ink);
+}
+.owner-links a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
 
 @keyframes dock-in {
   from {

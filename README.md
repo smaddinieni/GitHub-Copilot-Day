@@ -6,11 +6,11 @@ Agent Airlock is a local-first web exhibit for a coding workflow where agents ha
 
 ## Features
 
-- Bundled demonstration that explains the model on first load.
+- First load shows the repository's own `agentsMessageBoard.md`, bundled at build time via Vite `?raw`, so the exhibit opens on the real audit trail.
 - Chronological two-lane handoff timeline with message inspection and workflow telemetry.
 - Paste and `.md`/plain-text import with recoverable diagnostics.
 - Duplicate and out-of-order sequence detection without dropping valid entries.
-- Reset to the bundled demonstration. Transcript data stays in memory only.
+- Reset restores the bundled `Repository message board`. Transcript data stays in memory only.
 
 ## Local commands
 
@@ -25,8 +25,8 @@ npm.cmd run build
 
 - `src/domain/`: pure transcript types, parsing, diagnostics, ordering, and derived state.
 - `src/app/`: in-memory exhibit state and loading boundaries.
-- `src/components/`: timeline, inspector, role boundaries, telemetry, and transcript controls.
-- `src/fixtures/`: the bundled sanitized demonstration transcript.
+- `src/components/`: timeline, inspector, role boundaries, telemetry, transcript controls, and site footer.
+- `src/fixtures/`: the build-time repository-board import plus a small sample fixture used only by tests.
 
 ## Transcript format
 

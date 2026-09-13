@@ -4,23 +4,27 @@ import { useState } from "react";
 import { HandoffTimeline } from "./components/HandoffTimeline";
 import { MessageInspector } from "./components/MessageInspector";
 import { RoleBoundary } from "./components/RoleBoundary";
+import { SiteFooter } from "./components/SiteFooter";
 import { Telemetry } from "./components/Telemetry";
 import { TranscriptControls } from "./components/TranscriptControls";
 import {
   createExhibitState,
   loadExhibitTranscript,
-  resetToDemo,
+  REPOSITORY_SOURCE_LABEL,
+  resetToRepositoryBoard,
 } from "./app/exhibit";
 import { deriveTranscriptState, parseTranscript } from "./domain/transcript";
-import { demoTranscript } from "./fixtures/demoTranscript";
+import { repositoryTranscript } from "./fixtures/repositoryTranscript";
 import "./styles.css";
 
 function App() {
-  const initialParsed = parseTranscript(demoTranscript);
+  const initialParsed = parseTranscript(repositoryTranscript);
   const [messages, setMessages] = useState(initialParsed.messages);
   const [diagnostics, setDiagnostics] = useState(initialParsed.diagnostics);
-  const [sourceLabel, setSourceLabel] = useState("Bundled demonstration");
-  const [status, setStatus] = useState("Bundled demonstration loaded.");
+  const [sourceLabel, setSourceLabel] = useState(REPOSITORY_SOURCE_LABEL);
+  const [status, setStatus] = useState(
+    `${REPOSITORY_SOURCE_LABEL} loaded: ${initialParsed.messages.length} messages.`,
+  );
   const [selectedMessageId, setSelectedMessageId] = useState(
     () => createExhibitState(initialParsed.messages).selectedMessageId,
   );
@@ -42,12 +46,12 @@ function App() {
   };
 
   const reset = () => {
-    const result = resetToDemo();
+    const result = resetToRepositoryBoard();
     setMessages(result.messages);
     setDiagnostics(result.diagnostics);
     setSourceLabel(result.sourceLabel);
     setSelectedMessageId(result.selectedMessageId);
-    setStatus("Reset to bundled demonstration.");
+    setStatus(`${result.sourceLabel} restored.`);
   };
 
   return (
@@ -113,10 +117,7 @@ function App() {
         />
         <MessageInspector message={selectedMessage} />
       </section>
-      <footer className="attribution">
-        Implemented with GitHub Copilot. Planned and reviewed by Codex. Human
-        directed.
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

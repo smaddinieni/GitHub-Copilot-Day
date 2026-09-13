@@ -4,7 +4,7 @@ import { parseTranscript } from "../domain/transcript";
 import {
   createExhibitState,
   loadExhibitTranscript,
-  resetToDemo,
+  resetToRepositoryBoard,
   selectMessage,
 } from "./exhibit";
 
@@ -81,10 +81,10 @@ describe("exhibit selection", () => {
     expect(loaded.error).toContain("1 MiB");
   });
 
-  it("resets the exhibit to the bundled demo", () => {
-    const reset = resetToDemo();
+  it("resets the exhibit to the repository message board", () => {
+    const reset = resetToRepositoryBoard();
 
-    expect(reset.sourceLabel).toBe("Bundled demonstration");
+    expect(reset.sourceLabel).toBe("Repository message board");
     expect(reset.selectedMessageId).toBe("source-1");
   });
 });

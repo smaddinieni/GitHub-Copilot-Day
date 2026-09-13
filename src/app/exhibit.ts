@@ -3,9 +3,14 @@ import {
   parseTranscript,
 } from "../domain/transcript";
 import type { TranscriptDiagnostic, TranscriptMessage } from "../domain/types";
-import { demoTranscript } from "../fixtures/demoTranscript";
+import {
+  REPOSITORY_SOURCE_LABEL,
+  repositoryTranscript,
+} from "../fixtures/repositoryTranscript";
 
 export const MAX_TRANSCRIPT_BYTES = 1024 * 1024;
+
+export { REPOSITORY_SOURCE_LABEL, repositoryTranscript };
 
 export type ExhibitState = {
   selectedMessageId: string | null;
@@ -67,12 +72,12 @@ export function loadExhibitTranscript(
   };
 }
 
-export function resetToDemo(): ExhibitLoadResult {
-  const parsed = parseTranscript(demoTranscript);
+export function resetToRepositoryBoard(): ExhibitLoadResult {
+  const parsed = parseTranscript(repositoryTranscript);
   return {
     messages: getChronologicalMessages(parsed.messages),
     diagnostics: parsed.diagnostics,
-    sourceLabel: "Bundled demonstration",
+    sourceLabel: REPOSITORY_SOURCE_LABEL,
     selectedMessageId: createExhibitState(parsed.messages).selectedMessageId,
   };
 }

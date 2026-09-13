@@ -1,3 +1,8 @@
+/**
+ * Sample-only five-message fixture retained for focused parser, selection, and
+ * import tests. It is no longer the production default; first load and reset
+ * use the bundled repository message board.
+ */
 export const demoTranscript = `## Message 001 - Codex Supervisor to GitHub Copilot Builder
 **Stage:** Discovery
 **Status:** Plan ready
