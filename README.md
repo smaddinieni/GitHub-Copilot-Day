@@ -1,5 +1,7 @@
 # Agent Airlock
 
+Live demo: https://smaddinieni.github.io/GitHub-Copilot-Day/
+
 Agent Airlock is a local-first web exhibit for a coding workflow where agents have deliberately separate duties. The Supervisor plans and reviews but cannot implement. The Builder implements approved work but cannot change requirements. Their Markdown transcript provides the audit trail.
 
 ## Features
