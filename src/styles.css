@@ -23,7 +23,6 @@
 }
 body {
   margin: 0;
-  min-width: 320px;
   background: var(--paper);
 }
 button {
@@ -540,5 +539,16 @@ h2 {
   }
   .handoff-button {
     margin-bottom: 10px;
+  }
+}
+@media (max-width: 360px) {
+  .airlock {
+    padding: 18px 10px 36px;
+  }
+  .masthead {
+    padding-left: 12px;
+  }
+  .stamped-label {
+    overflow-wrap: anywhere;
   }
 }
